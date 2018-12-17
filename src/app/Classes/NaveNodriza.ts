@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 export class NaveNodriza {
 
-    public ID: number;
-    public Nombre: string;
 
+    constructor( public nombre: string,
+        public _id?: string) {
+
+    }
 }

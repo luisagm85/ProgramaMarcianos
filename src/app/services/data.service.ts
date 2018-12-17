@@ -16,19 +16,19 @@ export class DataService {
 
   constructor() { }
 
-  getnavesNodrizas(){
+  getnavesNodrizas() {
     return this.navesNodrizas;
   }
 
-  getviajes(){
+  getviajes() {
     return this.viajes;
   }
 
-  getaeronaves(){
+  getaeronaves() {
     return this.naves;
   }
 
-  getpasajeros(){
+  getpasajeros() {
     return this.passengers;
   }
 

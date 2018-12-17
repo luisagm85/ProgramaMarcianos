@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,13 +14,20 @@ import { Routes, RouterModule } from '@angular/router';
 import { from } from 'rxjs';
 import { MenuComponent } from './menu/menu.component';
 import { GestionPasajerosComponent } from './gestion-pasajeros/gestion-pasajeros.component';
+import { NodrizaService } from './services/nave-nodriza/nodriza.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+
+
+
 const appRoutes: Routes = [
   {path: 'newNaveNodriza', component: NaveNodrizaComponent},
   {path: 'newAeronave', component: AeronaveComponent},
   {path: 'newPasajero', component: PasajeroComponent},
   {path: 'newViaje', component: ViajeComponent},
   {path: 'newRevision', component: RevisionComponent},
-  {path: 'newGestion', component: GestionPasajerosComponent}
+  {path: 'newGestion', component: GestionPasajerosComponent},
+  {path: '', redirectTo: 'newNaveNodriza', pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -39,9 +46,13 @@ const appRoutes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     CommonModule
   ],
-  providers: [],
+  providers: [
+    NodrizaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

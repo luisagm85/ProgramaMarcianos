@@ -2,7 +2,7 @@
     <div class="row">
       <div class="col-sm">
 
-        <form method="POST" class="form" (ngSubmit) = submit()>
+        <form method="POST" class="form" >
         <div class="container">
 
           <div class="row" >
@@ -13,7 +13,7 @@
               <input type="number" name="txtid" id="txtid" [(ngModel)] = model.ID/>
             </div>
           </div>
-
+<!-- 
           <div class="row" >
             <div class="col-4">
               <label for="txtnombreviaje">Aeronave</label>
@@ -23,16 +23,16 @@
               <option *ngFor="let v of aeronaves" [value]="v.ID">{{v.Aeronave}}</option>
               </select>
             </div>
-          </div>
+          </div> -->
 
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-4">
               <label  for="txtfecharevision">Fecha Revisión</label>
             </div>
             <div class="col-6">
               <input type="datetime" name="txtfecharevision" id="txtfecharevision" [(ngModel)] = model.Fecha/>
             </div>
-          </div>
+          </div> -->
 
           <div class="row">
             <div class="col-4">
@@ -48,7 +48,7 @@
           </div>
 
           
-          <div class="container">
+          <!-- <div class="container">
             <h5>Marcianos a Bordo</h5>
               <table class="table table-responsive table-bordered">
                   <thead>
@@ -64,7 +64,7 @@
                       </tr>
                   </tbody>
               </table>
-          </div>
+          </div> -->
 
 
         </div>

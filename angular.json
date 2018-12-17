@@ -27,8 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.css",
-              "src/styles.styl"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -84,7 +83,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.styl"
+              "src/styles.css"
             ],
             "scripts": [],
             "assets": [

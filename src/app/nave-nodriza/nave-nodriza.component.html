@@ -1,34 +1,94 @@
 <div class="container">
-    <div class="row">
-      <div class="col-sm">
-        
-        <form method="POST" class="form" (ngSubmit) = submit()>
-        <div class="container">
 
-          <div class="row" >
-            <div class="col-4">
-              <label for="txtid">ID</label>
-            </div>
-            <div class="col-6">
-              <input type="number" name="txtid" id="txtid" [(ngModel)] = model.ID/>
-            </div>
+  <div class="container">
+      <div class="card animated fadeIn">
+          <h5 class="card-header">Crear Nave Nodriza</h5>
+          <div class="card-body">
+            <h5 class="card-title">Ingresar nombre de la nave</h5>
+          <form ngNativeValidate [formGroup]="forma" class="form" (ngSubmit)=crearnavenodriza()>
+                <div class="form-group row">
+                  <div class="col-sm-4">
+                    <label for="txtname">Nombre</label>
+                    <input formControlName="nombre" type="text" class="form-control input-sm" name="nombre" id="txtname" required
+                      placeholder="Nombre de nave nodriza" />
+                  </div>
+                </div>
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                
+              </form>
           </div>
+        </div>
 
-          <div class="row" >
-            <div class="col-4">
-              <label for="txtname">Nombre</label>
-            </div>
-            <div class="col-6">
-              <input type="text" name="txtname" id="txtname" [(ngModel)] = model.Nombre/>
-            </div>
-          </div>
+  </div>
 
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary">Guardar</button>
-          </div>
+</div>
 
+<hr>
+<br />
+<!-- <div class="container  ">
+  <div class="row animated fadeIn">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <input #input (keyup)="buscarusuario(input.value)" type="text" class="form-control" placeholder="Buscar nave nodriza">
+        </div>
       </div>
-      </form>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="container">
+  <div class="row animated fadeIn" *ngIf="cargando">
+    <div class="col-sm-12">
+      <div class="alert alert-warning text-center">
+        <strong>Cargando</strong>
+        <br />
+        <br />
+        <i class="fas fa-sync fa-spin fa-2x" aria-hidden="true"></i>
+        <br />
+        <br />
+        <span>Espere por favor</span>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container ">
+  <div class="row animated fadeIn" >
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Naves nodrizas registradas</h3>
+
+          <table class="table table-striped table-bordered table-hover ">
+            <thead class="thead-dark">
+              <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let nodriza of nodrizas;let indice = index" >
+                <td >{{ indice+1 }}</td>
+                <td> {{nodriza.nombre}} </td>
+                <td >
+                  <button class="btn btn-primary" >
+                    <i class="fas fa-save"></i>
+                  </button> 
+                  &nbsp;
+                  <button (click)="borrarNodriza(nodriza)" class="btn btn-danger  ">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                  
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+
+        </div>
+      </div>
     </div>
   </div>
 </div>
