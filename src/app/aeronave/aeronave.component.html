@@ -1,0 +1,68 @@
+<div class="container">
+<div class="row">
+    <div class="col-sm">
+
+        <form method="POST" class="form" (ngSubmit) = submit()>
+
+        <div class="container">
+
+          <div class="row">
+            <div class="col-4" >
+              <label for="txtid">ID</label>
+            </div>
+            <div class="col-6">
+              <input type="number" name="txtid" id="txtid" [(ngModel)] = model.ID/>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-4">
+              <label for="txtname">Nombre</label>
+            </div>
+            <div class="col-6">
+              <input type="text" name="txtname" id="txtname" [(ngModel)] = model.Nombre/>
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="col-4" >
+                  <label for="txtmaxmacr">Numero Máximo Marcianos</label>
+              </div>
+              <div class="col-6" >
+                  <input type="number" name="txtmaxmacr" id="txtmaxmacr" [(ngModel)] = model.MaxMarcianos/>
+              </div>
+          </div>
+          
+          <div class="row">
+              <div class="col-4" >
+                <label for="txtnombreNaveOr">Nave Nodriza Origen</label>
+              </div>
+              <div class="col-6">
+                  <select id="txtnombreNaveOr" name="txtnombreNaveOr" [(ngModel)] = "NaveNodriza">
+                      <option *ngFor="let n of navesOrigen" [value]="n.ID">{{n.Origen}}</option>
+                  </select>
+              </div>
+          </div>
+          
+          <div class="row" >
+            <div class="col-4">
+              <label for="txtnombreNaveDt">Nave Nodriza Origen</label>
+            </div>
+            <div class="col-6">
+                <select id="txtnombreNaveDt" name="txtnombreNaveDt" [(ngModel)] = "NaveNodriza">
+                    <option *ngFor="let n of navesDestino" [value]="n.ID">{{n.Destino}}</option>
+                </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+
+        </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+

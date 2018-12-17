@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      
+        <form method="POST" class="form" (ngSubmit) = submit()>    
+        <div class="container">
+
+          
+              <div class="row" >
+              <div class="col-4" >
+                <label for="txtidv">ID</label>
+              </div>
+              <div class="col-6" >
+                <input type="number" class = "form-control" name="txtidv" id="txtidv" [(ngModel)] = model.ID/>
+              </div>
+              </div>
+  
+              
+              <div class="row">
+                <div class="col-4" >
+                  <label for="txtnombreAeronave">Aeronave</label>
+                </div>
+                <div class="col-6">
+                <select id="txtnombreAeronave" name="txtnombreAeronave" [(ngModel)] = "Aeronave">
+                  <option *ngFor="let n of naves" [value]="n.ID">{{n.Nave}}</option>
+                </select>
+                </div>
+              </div>
+                
+              <div class="row">
+                <div class="col-4">
+                  <label  for="txtfechasalida">Fecha Salida</label>
+                </div>
+                <div class="col-6">
+                  <input type="datetime-local" class="form-control"  name="txtfechasalida" id="txtfechasalida" [(ngModel)] = model.Fechasalida/>
+                </div>
+              </div>
+  
+              <div class="row">
+                <div class="col-4">
+                  <label  for="txtfechallegada">Fecha Llegada</label>
+                </div>
+                <div class="col-6">
+                  <input type="datetime-local" class="form-control" name="txtfechallegada" id="txtfechallegada" [(ngModel)] = model.FechaLlegada/>
+                </div>
+              </div>
+  
+              <div class="row">
+                <div class="col-4">
+                  <label  for="txtestado">Estado</label>
+                </div>
+                <div class="col-6">
+                  <input type="text"  class = "form-control" name="txtestado" id="txtestado" [(ngModel)] = model.Estado/>
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+              </div>
+
+        </div>
+        </form>
+          
+    </div>
+  </div>
+</div>

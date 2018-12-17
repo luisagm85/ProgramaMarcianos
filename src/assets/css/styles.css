@@ -1,0 +1,14 @@
+.headerContainer{
+    position: relative;
+    background-image: linear-gradient(to right, #566677, #ffffff)
+}
+.titleHeader{
+    margin-top: 30px
+}
+.generalContent{
+    margin-bottom: 50px;
+    background-image: linear-gradient(to right, #b8bcbf, #324150);
+}
+.generalContent ul li{
+    color: #ffffff;
+}
