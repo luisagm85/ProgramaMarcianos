@@ -11,14 +11,14 @@ import { Aeronave } from '../Classes/Aeronave';
 })
 export class GestionPasajerosComponent implements OnInit {
 
-  aeronaveActual: Aeronave = new Aeronave();
+  // aeronaveActual: Aeronave = new Aeronave();
   pasajeroActual: Pasajero = new Pasajero();
 
   pasajerosExistentes: Pasajero[];
   aeronavesDisponibles: Aeronave[];
 
   constructor(private dataService: DataService) {
-    
+
     this.pasajerosExistentes = this.dataService.getpasajeros();
     this.aeronavesDisponibles = this.dataService.getaeronaves();
 

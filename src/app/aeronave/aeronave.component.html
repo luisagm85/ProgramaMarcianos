@@ -1,68 +1,97 @@
 <div class="container">
-<div class="row">
-    <div class="col-sm">
 
-        <form method="POST" class="form" (ngSubmit) = submit()>
-
-        <div class="container">
-
-          <div class="row">
-            <div class="col-4" >
-              <label for="txtid">ID</label>
-            </div>
-            <div class="col-6">
-              <input type="number" name="txtid" id="txtid" [(ngModel)] = model.ID/>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-4">
-              <label for="txtname">Nombre</label>
-            </div>
-            <div class="col-6">
-              <input type="text" name="txtname" id="txtname" [(ngModel)] = model.Nombre/>
-            </div>
-          </div>
-
-          <div class="row">
-              <div class="col-4" >
-                  <label for="txtmaxmacr">Numero Máximo Marcianos</label>
-              </div>
-              <div class="col-6" >
-                  <input type="number" name="txtmaxmacr" id="txtmaxmacr" [(ngModel)] = model.MaxMarcianos/>
-              </div>
-          </div>
-          
-          <div class="row">
-              <div class="col-4" >
-                <label for="txtnombreNaveOr">Nave Nodriza Origen</label>
-              </div>
-              <div class="col-6">
-                  <select id="txtnombreNaveOr" name="txtnombreNaveOr" [(ngModel)] = "NaveNodriza">
-                      <option *ngFor="let n of navesOrigen" [value]="n.ID">{{n.Origen}}</option>
-                  </select>
-              </div>
-          </div>
-          
-          <div class="row" >
-            <div class="col-4">
-              <label for="txtnombreNaveDt">Nave Nodriza Origen</label>
-            </div>
-            <div class="col-6">
-                <select id="txtnombreNaveDt" name="txtnombreNaveDt" [(ngModel)] = "NaveNodriza">
-                    <option *ngFor="let n of navesDestino" [value]="n.ID">{{n.Destino}}</option>
-                </select>
+    <div class="container">
+        <div class="card animated fadeIn">
+            <h5 class="card-header">Crear Aeronave</h5>
+            <div class="card-body">
+              <h5 class="card-title">Ingresar nombre de la Aeronave</h5>
+            <form #f="ngForm"  ngNativeValidate  class="form" (ngSubmit)=crearAeronave(f)>
+                  <div class="form-group row">
+                    <div class="col-sm-4">
+                      <label for="txtname">Nombre</label>
+                      <input [(ngModel)]="formnave.nombre" type="text" class="form-control" name="nombre" id="txtname" required
+                        placeholder="Nombre de la Aeronave" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="txtmax_pas">Pasajeros Permitidos</label>
+                        <input [(ngModel)]="formnave.max_pas"  type="number" class="form-control" name="max_pas" id="txtmax_pas" required
+                          placeholder="Numero de Pasajeros permitidos" />
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      
+                          <label >Nave Nodriza</label>
+                          <select [(ngModel)]="formnave.nodriza" name="nodriza" class="form-control" required>
+                            <option value="" >Seleccione Nave Nodriza</option>
+                            <option *ngFor="let nodriza of nodriza" [value]="nodriza._id">
+                              {{nodriza.nombre}}
+                            </option>
+                          </select>
+                  </div>
+                  
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                  
+                </form>
             </div>
           </div>
-
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary">Guardar</button>
+  
+    </div>
+  
+  </div>
+  
+  <hr>
+  <br />
+  
+  
+  <div class="container ">
+    <div class="row animated fadeIn" >
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Aeronaves registradas</h3>
+            <form  ngNativeValidate  class="form" >
+            <table class="table table-striped table-bordered table-hover ">
+              <thead class="thead-dark">
+                <tr>
+                  <th>#</th>
+                  <th>Nombre</th>
+                  <th>Pasajeros Permitidos</th>
+                  <th>Nave Nodriza</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let aeronaves of aeronave;let indice = index" >
+                  <td >{{ indice+1 }}</td>
+                  <td>{{aeronaves.nombre}} </td>
+                  <td>{{aeronaves.max_pas}} </td>
+                    <td  > {{aeronaves.nodriza.nombre}}
+                    </td>
+                  <td >
+                    <button class="btn btn-primary btn-sm nav-link" routerLink="/editAeronave" data-toggle="tooltip" data-placement="top" title="Modificar">
+                      
+                      <i class="fas fa-edit"></i>
+                    </button> 
+        
+                    <button  class="btn btn-danger " (click)="borrarNodriza(aeronaves)" data-toggle="tooltip" data-placement="top" title="Borrar">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                    
+                  </td>
+                </tr>
+  
+              </tbody>
+            </table>
+          </form>
+  
           </div>
-
         </div>
-    </form>
+      </div>
     </div>
   </div>
-</div>
-
-
+  
+    
+        
+  

@@ -23,6 +23,14 @@ export class NodrizaService {
                }));
    }
 
+   actualizarnavenodriza(nodriza: NaveNodriza, id: string ) {
+      let url = URL_SERVICIOS + '/nodriza/' + id;
+         return this.http.put(url, nodriza)
+         .pipe(map((res: any) => {
+            swal('Nave nodriza Actualizada', nodriza.nombre, 'success');
+            return res.nodriza;
+            }));
+   }
    cargarnavesnodrizas() {
       let url = URL_SERVICIOS + '/nodriza';
          return this.http.get(url);

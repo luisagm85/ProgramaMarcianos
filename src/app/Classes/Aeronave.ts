@@ -4,31 +4,29 @@ import { Pasajero } from './Pasajero';
 
 export class Aeronave {
 
-  public _id: number;
-  public nombre: string;
-  public maxmarcianos: number;
-  public origen: NaveNodriza;
-  public destino: NaveNodriza;
-  public pasajerosabordo: Pasajero[];
 
-  constructor() {
+
+  constructor(public nombre: string,
+    public max_pas?: number,
+    public nodriza?: NaveNodriza,
+    public _id?: string) {
 
                }
 
-  public setOrigen(Origen) {
-    return Origen;
-  }
+  // public setOrigen(Origen) {
+  //   return Origen;
+  // }
 
-  subirPasajero(p: Pasajero) {
-    if (this.pasajerosabordo.length < this.maxmarcianos) {
-      this.pasajerosabordo.push(p);
-    }
-  }
+  // subirPasajero(p: Pasajero) {
+  //   if (this.pasajerosabordo.length < this.max_pas) {
+  //     this.pasajerosabordo.push(p);
+  //   }
+  // }
 
-  bajarPasajero(p: Pasajero) {
-    // tslint:disable-next-line:prefer-const
-    let inx = this.pasajerosabordo.indexOf(p);
-    this.pasajerosabordo.splice(inx, 1);
-  }
+  // bajarPasajero(p: Pasajero) {
+  //   // tslint:disable-next-line:prefer-const
+  //   let inx = this.pasajerosabordo.indexOf(p);
+  //   this.pasajerosabordo.splice(inx, 1);
+  // }
 
 }

@@ -15,7 +15,11 @@ import { from } from 'rxjs';
 import { MenuComponent } from './menu/menu.component';
 import { GestionPasajerosComponent } from './gestion-pasajeros/gestion-pasajeros.component';
 import { NodrizaService } from './services/nave-nodriza/nodriza.service';
+import { AeronaveService } from './services/Aeronave/aeronave.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AeronaveditComponent } from './aeronave/aeronavedit.component';
+
+
 
 
 
@@ -27,6 +31,7 @@ const appRoutes: Routes = [
   {path: 'newViaje', component: ViajeComponent},
   {path: 'newRevision', component: RevisionComponent},
   {path: 'newGestion', component: GestionPasajerosComponent},
+  {path: 'editAeronave', component: AeronaveditComponent},
   {path: '', redirectTo: 'newNaveNodriza', pathMatch: 'full'}
 ];
 
@@ -39,7 +44,8 @@ const appRoutes: Routes = [
     ViajeComponent,
     RevisionComponent,
     MenuComponent,
-    GestionPasajerosComponent
+    GestionPasajerosComponent,
+    AeronaveditComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +57,9 @@ const appRoutes: Routes = [
     CommonModule
   ],
   providers: [
+    AeronaveService,
     NodrizaService
+
   ],
   bootstrap: [AppComponent]
 })

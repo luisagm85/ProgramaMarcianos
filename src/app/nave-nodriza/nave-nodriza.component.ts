@@ -14,17 +14,23 @@ export class NaveNodrizaComponent {
 
   nodrizas: NaveNodriza[] = [];
   forma: FormGroup;
+  forma1: FormGroup;
   cargando: boolean = true;
+  display = 'none';
   constructor(public _nodrizaService: NodrizaService) {
 
   }
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit() {
+
     this.forma = new FormGroup({
       nombre: new FormControl(null, Validators.required)
     });
     this.cargarnavesnodrizas();
+    this.forma1 = new FormGroup({
+      nombre1: new FormControl(null, Validators.required)
+    });
   }
 
 
@@ -42,6 +48,29 @@ export class NaveNodrizaComponent {
 
   }
 
+  actualizarnavesnodrizas( nodriza: NaveNodriza) {
+    let navenodriza = new NaveNodriza(
+      this.forma1.value.nombre1
+    );
+    swal({
+      title: '¿Estas seguro?',
+      text: 'Esta a punto de actualizar?',
+      icon: 'info',
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((actualizar) => {
+        console.log(actualizar);
+      if (actualizar) {
+        this._nodrizaService.actualizarnavenodriza( navenodriza, nodriza._id )
+                .subscribe( actualizado => {
+                    this.cargarnavesnodrizas();
+                });
+      }
+
+    });
+  }
+
   cargarnavesnodrizas() {
 
     this.cargando = true;
@@ -49,13 +78,9 @@ export class NaveNodrizaComponent {
                 .subscribe((resp: any) => {
                   this.nodrizas = resp.nodrizas;
                   console.log(this.nodrizas);
-                  this.cargando = false;
                 });
   }
 
-  // buscarusuario(termino: string) {
-  //   console.log(termino);
-  // }
 
   borrarNodriza( nodriza: NaveNodriza) {
     console.log(nodriza);
@@ -78,6 +103,8 @@ export class NaveNodrizaComponent {
 
     });
   }
+
+
 
 
 

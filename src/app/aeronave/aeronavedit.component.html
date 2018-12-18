@@ -1,0 +1,42 @@
+<div class="container">
+
+  <div class="container">
+      <div class="card animated fadeIn">
+          <h5 class="card-header">Crear Aeronave</h5>
+          <div class="card-body">
+            <h5 class="card-title">Ingresar nombre de la Aeronave</h5>
+          <form class="form">
+                <div class="form-group row">
+                  <div class="col-sm-4">
+                    <label for="txtname">Nombre</label>
+                    <input  type="text" class="form-control" name="nombre" id="txtname" required
+                      placeholder="Nombre de la Aeronave" />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-4">
+                      <label for="txtmax_pas">Pasajeros Permitidos</label>
+                      <input  type="number" class="form-control" name="max_pas" id="txtmax_pas" required
+                        placeholder="Numero de Pasajeros permitidos" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    
+                        <label >Nave Nodriza</label>
+                        <select name="nodriza" class="form-control" required>
+                          <option value="" >Seleccione Nave Nodriza</option>
+                          <option *ngFor="let nodriza of nodriza" [value]="nodriza._id">
+                            {{nodriza.nombre}}
+                          </option>
+                        </select>
+                </div>
+                
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                
+              </form>
+          </div>
+        </div>
+
+  </div>
+
+</div>
