@@ -84,11 +84,9 @@ export class PasajeroComponent {
       dangerMode: true,
     })
     .then((borrar) => {
-        console.log(borrar);
       if (borrar) {
         this._pasajeroService.borrarPasajero(pasajero._id )
                 .subscribe( borrado => {
-                  console.log(borrado);
                     this.cargarPasajero();
                 });
       }

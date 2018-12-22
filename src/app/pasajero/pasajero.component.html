@@ -13,12 +13,12 @@
                       placeholder="Nombre del Pasajero" />
                   </div>
                 </div>
-                <div class="form-group-row">
+                <div class="form-group">
                     
                         <label >Aeronave</label>
                         <select [(ngModel)]="formpasajero.aeronave" name="aeronave" class="form-control" required>
                           <option value="" >Seleccione Aeronave</option>
-                          <option *ngFor="let aeronave of aeronave" [value]="aeronave?._id">
+                          <option *ngFor="let aeronave of aeronave" [value]="aeronave._id">
                             {{aeronave.nombre}}
                           </option>
                         </select>
@@ -58,7 +58,7 @@
               <tr *ngFor="let pasajeros of pasajero;let indice = index" >
                 <td >{{ indice+1 }}</td>
                 <td>{{ pasajeros.nombre }} </td>
-                <td  > {{pasajeros.aeronave.nombre}}
+                <td  > {{ pasajeros.aeronave.nombre }}
                   </td>
                 <td >
                    <button  class="btn btn-danger " (click)="borrarPasajero(pasajeros)" data-toggle="tooltip" data-placement="top" title="Borrar">

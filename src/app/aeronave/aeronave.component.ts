@@ -39,7 +39,6 @@ export class AeronaveComponent {
     this._nodrizaService.cargarnavesnodrizas()
                 .subscribe((resp: any) => {
                   this.nodriza = resp.nodrizas;
-                  console.log(this.nodriza);
                 });
   }
 
@@ -94,11 +93,9 @@ export class AeronaveComponent {
       dangerMode: true,
     })
     .then((borrar) => {
-        console.log(borrar);
       if (borrar) {
         this._aeronaveService.borrarAeronaves(aeronave._id )
                 .subscribe( borrado => {
-                  console.log(borrado);
                     this.cargarAeronave();
                 });
       }
