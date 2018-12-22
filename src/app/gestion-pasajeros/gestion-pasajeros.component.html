@@ -1,4 +1,49 @@
 
+<div class="container">
+
+  <div class="container">
+      <div class="card animated fadeIn">
+          <h5 class="card-header">Viajes Intergalacticos</h5>
+          <div class="card-body">
+            <h5 class="card-title">Elija Nave Nodriza del viaje</h5>
+          <form #f="ngForm"  ngNativeValidate  class="form" >
+                <div class="form-group">
+                    
+                        <label >Aeronave</label>
+                        <select name="aeronave" class="form-control" required>
+                          <option value="" >Seleccione Nave</option>
+                          <option *ngFor="let aeronave of aeronaves" [value]="aeronave._id">
+                            {{aeronave.nombre}}
+                          </option>
+                        </select>
+                </div>
+                <div class="form-group">
+                    
+                  <label >Nave Nodriza actual</label>
+                  
+                </div>
+                <div class="form-group">
+                    
+                  <label >Nave Nodriza Destino</label>
+                  <select name="aeronave" class="form-control" required>
+                    <option value="" >Seleccione Nave Nodriza</option>
+                    <option *ngFor="let nodriza of naveNodriza" [value]="nodriza._id">
+                      {{nodriza.nombre}}
+                    </option>
+                  </select>
+                </div>
+                               
+                  <button type="submit" class="btn btn-primary">Viajar</button>
+                
+              </form>
+          </div>
+        </div>
+
+  </div>
+
+</div>
+
+<hr>
 
 <div class="container">
 
@@ -13,8 +58,8 @@
                         <label >Pasajero</label>
                         <select name="aeronave" class="form-control" required>
                           <option value="" >Seleccione Pasajero a subir</option>
-                          <option *ngFor="let aeronave of aeronave" [value]="aeronave._id">
-                            {{aeronave.nombre}}
+                          <option *ngFor="let pasajero of pasajeros" [value]="pasajero._id">
+                            {{pasajero.nombre}}
                           </option>
                         </select>
                 </div>
@@ -28,7 +73,7 @@
                   <label >Aeronave</label>
                   <select name="aeronave" class="form-control" required>
                     <option value="" >Seleccione Aeronave</option>
-                    <option *ngFor="let aeronave of aeronave" [value]="aeronave._id">
+                    <option *ngFor="let aeronave of aeronaves" [value]="aeronave._id">
                       {{aeronave.nombre}}
                     </option>
                   </select>
@@ -63,8 +108,8 @@
                         <label >Pasajero</label>
                         <select name="aeronave" class="form-control" required>
                           <option value="" >Seleccione Pasajero a bajar</option>
-                          <option *ngFor="let aeronave of aeronave" [value]="aeronave._id">
-                            {{aeronave.nombre}}
+                          <option *ngFor="let pasajero of pasajeros" [value]="pasajero._id">
+                            {{pasajero.nombre}}
                           </option>
                         </select>
                 </div>
@@ -74,7 +119,7 @@
                   
                 </div>
                 
-                  <button type="submit" class="btn btn-primary">Subir</button>
+                  <button type="submit" class="btn btn-primary">Bajar</button>
                 
               </form>
           </div>

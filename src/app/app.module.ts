@@ -19,6 +19,7 @@ import { AeronaveService } from './services/Aeronave/aeronave.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AeronaveditComponent } from './aeronave/aeronavedit.component';
 import { PasajeroServiceService } from './services/Pasajero/pasajero-service.service';
+import { RevisionService } from './services/Revision/revision.service';
 
 
 
@@ -60,6 +61,7 @@ const appRoutes: Routes = [
   providers: [
     AeronaveService,
     PasajeroServiceService,
+    RevisionService,
     NodrizaService
 
   ],

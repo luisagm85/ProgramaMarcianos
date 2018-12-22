@@ -3,6 +3,10 @@ import { Viaje } from '../Classes/Viaje';
 import { Pasajero } from '../Classes/Pasajero';
 import { DataService } from '../services/data.service';
 import { Aeronave } from '../Classes/Aeronave';
+import { NaveNodriza } from '../Classes/NaveNodriza';
+import { AeronaveService } from '../services/Aeronave/aeronave.service';
+import { NodrizaService } from '../services/nave-nodriza/nodriza.service';
+import { PasajeroServiceService } from '../services/Pasajero/pasajero-service.service';
 
 @Component({
   selector: 'app-gestion-pasajeros',
@@ -14,17 +18,42 @@ export class GestionPasajerosComponent implements OnInit {
   // aeronaveActual: Aeronave = new Aeronave();
 
 
-  pasajerosExistentes: Pasajero[];
-  aeronavesDisponibles: Aeronave[];
+  pasajeros: Pasajero[];
+  aeronaves: Aeronave[];
+  naveNodriza: NaveNodriza[];
 
-  constructor(private dataService: DataService) {
-
-    this.pasajerosExistentes = this.dataService.getpasajeros();
-    this.aeronavesDisponibles = this.dataService.getaeronaves();
+  constructor(public _serviceAeronave: AeronaveService,
+    public _nodrizaService: NodrizaService, public _pasajeroService: PasajeroServiceService) {
 
   }
 
   ngOnInit() {
+    this.cargarAeronave();
+    this.cargarPasajero();
+    this.cargarnavesnodrizas();
   }
 
+  // Get de Naves Nodrizas
+  cargarnavesnodrizas() {
+    this._nodrizaService.cargarnavesnodrizas()
+                .subscribe((resp: any) => {
+                  this.naveNodriza = resp.nodrizas;
+                });
+  }
+// Get de Naves Aeronave
+  cargarAeronave() {
+    this._serviceAeronave.cargarAeronaves()
+    .subscribe(naves => this.aeronaves = naves);
+
+  }
+  // Get de Naves Aeronave
+  cargarPasajero() {
+    this._pasajeroService.cargarPasajero()
+    .subscribe(pasajeros => this.pasajeros = pasajeros);
+
+  }
+
+  // Actualizar Naves por viaje
+
+  // Actualizar Pasajero por Subir o bajar
 }

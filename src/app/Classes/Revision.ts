@@ -4,8 +4,7 @@ export class Revision {
 
 
 
-    constructor(public ID: number,
-        public Viaje: number,
-        public Revisor: string) { }
+    constructor(public nombre: string,
+        public aeronave?: string, public fecha?: Date, public _id?: string) { }
 
 }

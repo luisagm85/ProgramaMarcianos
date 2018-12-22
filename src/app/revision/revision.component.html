@@ -5,19 +5,19 @@
       <h5 class="card-header">Revision</h5>
       <div class="card-body">
         <h5 class="card-title">Registro de Revisión</h5>
-        <form #f="ngForm" ngNativeValidate class="form">
+        <form #f="ngForm"  ngNativeValidate  class="form" (ngSubmit)=crearRevision(f)>
           <div class="form-group row">
             <div class="col-sm-4">
               <label for="txtname">Nombre del revisor</label>
-              <input type="text" class="form-control" name="nombre" id="txtname" required placeholder="Nombre del revisor" />
+              <input [(ngModel)]="formrevision.nombre" type="text" class="form-control" name="nombre" id="txtname" required placeholder="Nombre del revisor" />
             </div>
           </div>
           <div class="form-group">
 
             <label>Aeronave a revisar</label>
-            <select name="aeronave" class="form-control" required>
+            <select [(ngModel)]="formrevision.aeronave" name="aeronave" class="form-control" required>
               <option value="">Seleccione Aeronave a revisar</option>
-              <option *ngFor="let aeronave of aeronave" [value]="aeronave._id">
+              <option *ngFor="let aeronave of aeronaves" [value]="aeronave._id">
                 {{aeronave.nombre}}
               </option>
             </select>
@@ -26,7 +26,7 @@
           <div class="form-group row">
             <div class="col-sm-4">
               <label for="txtname">Fecha</label>
-              <input type="date" class="form-control" name="fecha" id="fecha" required placeholder="Fecha de revision" />
+              <input [(ngModel)]="formrevision.fecha" type="date" class="form-control" name="fecha" id="fecha" required placeholder="Fecha de revision" />
             </div>
           </div>
 
