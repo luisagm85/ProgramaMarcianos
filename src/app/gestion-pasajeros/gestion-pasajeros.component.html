@@ -1,91 +1,86 @@
-<!-- <div class="container">
-    <div class="row">
-      <div class="col-sm">
-        
-          <form method="POST" class="form">    
-          <div class="container">
 
-            <div class="container">
 
-              <div class="row">
-                  <div class="col-4" >
-                    <label for="txtidviaje">Aeronave</label>
-                  </div>
-                  <div class="col-6">
-                  <select id="txtidviaje" name="txtidviaje" [(ngModel)] = "Aeronave">
-                    <option *ngFor="let v of aeronavesDisponibles" [value]="v.ID">{{v.ID}}</option>
-                  </select>
-                  </div>
-                </div>
+<div class="container">
 
-                <div class="row">
-                    <div class="col-4" >
-                      <label for="txtidpasajero">Pasajero</label>
-                    </div>
-                    <div class="col-6">
-                    <select id="txtidpasajero" name="txtidpasajero" [(ngModel)] = "Pasajero">
-                      <option *ngFor="let p of pasajerosExistentes" [value]="p.ID">{{p.ID}}</option>
-                    </select>
-                    </div>
-                  </div>
-
+  <div class="container">
+      <div class="card animated fadeIn">
+          <h5 class="card-header">Subir Pasajero</h5>
+          <div class="card-body">
+            <h5 class="card-title">Ingresar nombre del pasajero</h5>
+          <form #f="ngForm"  ngNativeValidate  class="form" >
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Subir</button>
-                  </div>
-
+                    
+                        <label >Pasajero</label>
+                        <select name="aeronave" class="form-control" required>
+                          <option value="" >Seleccione Pasajero a subir</option>
+                          <option *ngFor="let aeronave of aeronave" [value]="aeronave._id">
+                            {{aeronave.nombre}}
+                          </option>
+                        </select>
                 </div>
-
-                <div class="container">
-
-                  <div class="row">
-                  <div class="col-4" >
-                    <label for="txtidviaje">Aeronave</label>
-                  </div>
-                  <div class="col-6">
-                  <select id="txtidviaje" name="txtidviaje" [(ngModel)] = "Aeronave">
-                    <option *ngFor="let v of aeronavesDisponibles" [value]="v.ID">{{v.ID}}</option>
+                <div class="form-group">
+                    
+                  <label >Aeronave actual</label>
+                  
+                </div>
+                <div class="form-group">
+                    
+                  <label >Aeronave</label>
+                  <select name="aeronave" class="form-control" required>
+                    <option value="" >Seleccione Aeronave</option>
+                    <option *ngFor="let aeronave of aeronave" [value]="aeronave._id">
+                      {{aeronave.nombre}}
+                    </option>
                   </select>
-                  </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-4" >
-                      <label for="txtidpasajero">Pasajero</label>
-                    </div>
-                    <div class="col-6">
-                    <select id="txtidpasajero" name="txtidpasajero" [(ngModel)] = "Pasajero">
-                      <option *ngFor="let p of model.pasajerosABordo" [value]="p.ID">{{p.ID}}</option>
-                    </select>
-                    </div>
-                  </div>
-
-
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Bajar</button>
-                  </div>
-
+                <div class="form-group">
+                    
+                  <label >Aeronave actual</label>
+                  
                 </div>
+                
+                  <button type="submit" class="btn btn-primary">Subir</button>
+                
+              </form>
+          </div>
+        </div>
 
-              <div class="container">
-                  <table id="Marcianos a Bordo" class="table table-responsive table-bordered">
-                      <thead>
-                          <tr>
-                              <th>ID</th>
-                              <th>Nombre</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr *ngFor="let p of model.pasajerosABordo" >
-                              <td>{{p.ID}}</td>
-                              <td>{{p.Nombre}}</td>
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
+  </div>
 
+</div>
 
-            </div>
-          </form>
-      </div>
-    </div>
-  </div> -->
+<hr>
+<div class="container">
+
+  <div class="container">
+      <div class="card animated fadeIn">
+          <h5 class="card-header">Bajar Pasajero</h5>
+          <div class="card-body">
+            <h5 class="card-title">Ingresar nombre del pasajero</h5>
+          <form #f="ngForm"  ngNativeValidate  class="form" >
+                <div class="form-group">
+                    
+                        <label >Pasajero</label>
+                        <select name="aeronave" class="form-control" required>
+                          <option value="" >Seleccione Pasajero a bajar</option>
+                          <option *ngFor="let aeronave of aeronave" [value]="aeronave._id">
+                            {{aeronave.nombre}}
+                          </option>
+                        </select>
+                </div>
+                <div class="form-group">
+                    
+                  <label >Aeronave Actual</label>
+                  
+                </div>
+                
+                  <button type="submit" class="btn btn-primary">Subir</button>
+                
+              </form>
+          </div>
+        </div>
+
+  </div>
+
+</div>
+<hr>
