@@ -34,7 +34,7 @@ export class AeronaveComponent {
 
   }
 
-  // Get de Nanes Nodrizas
+  // Get de Naves Nodrizas
   cargarnavesnodrizas() {
     this._nodrizaService.cargarnavesnodrizas()
                 .subscribe((resp: any) => {

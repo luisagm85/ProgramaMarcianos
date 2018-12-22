@@ -1,34 +1,82 @@
 <div class="container">
-    <div class="row">
-      <div class="col-sm">
-        
-        <form method="POST" class="form" (ngSubmit) = submit()>
-        <div class="container">
 
-          <div class="row" >
-            <div class="col-4">
-              <label for="txtid">ID</label>
-            </div>
-            <div class="col-6">
-              <input type="number" name="txtid" id="txtid" [(ngModel)] = model.ID/>
-            </div>
+  <div class="container">
+      <div class="card animated fadeIn">
+          <h5 class="card-header">Crear Pasajero</h5>
+          <div class="card-body">
+            <h5 class="card-title">Ingresar nombre del pasajero</h5>
+          <form #f="ngForm"  ngNativeValidate  class="form" (ngSubmit)=crearPasajero(f)>
+                <div class="form-group row">
+                  <div class="col-sm-4">
+                    <label for="txtname">Nombre</label>
+                    <input [(ngModel)]="formpasajero.nombre" type="text" class="form-control" name="nombre" id="txtname" required
+                      placeholder="Nombre del Pasajero" />
+                  </div>
+                </div>
+                <div class="form-group-row">
+                    
+                        <label >Aeronave</label>
+                        <select [(ngModel)]="formpasajero.aeronave" name="aeronave" class="form-control" required>
+                          <option value="" >Seleccione Aeronave</option>
+                          <option *ngFor="let aeronave of aeronave" [value]="aeronave?._id">
+                            {{aeronave.nombre}}
+                          </option>
+                        </select>
+                </div>
+                
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                
+              </form>
           </div>
+        </div>
 
-          <div class="row" >
-            <div class="col-4">
-              <label for="txtname">Nombre</label>
-            </div>
-            <div class="col-6">
-              <input type="text" name="txtname" id="txtname" [(ngModel)] = model.Nombre/>
-            </div>
-          </div>
+  </div>
 
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary">Guardar</button>
-          </div>
+</div>
 
+<hr>
+<br />
+
+
+<div class="container ">
+  <div class="row animated fadeIn" >
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Pasajeros registrados</h3>
+          <form  ngNativeValidate  class="form" >
+          <table class="table table-striped table-bordered table-hover ">
+            <thead class="thead-dark">
+              <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                 <th>Aeronave</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pasajeros of pasajero;let indice = index" >
+                <td >{{ indice+1 }}</td>
+                <td>{{ pasajeros.nombre }} </td>
+                <td  > {{pasajeros.aeronave.nombre}}
+                  </td>
+                <td >
+                   <button  class="btn btn-danger " (click)="borrarPasajero(pasajeros)" data-toggle="tooltip" data-placement="top" title="Borrar">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                  
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </form>
+
+        </div>
       </div>
-      </form>
     </div>
   </div>
 </div>
+
+  
+      

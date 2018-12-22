@@ -12,7 +12,7 @@ import { Aeronave } from '../Classes/Aeronave';
 export class GestionPasajerosComponent implements OnInit {
 
   // aeronaveActual: Aeronave = new Aeronave();
-  pasajeroActual: Pasajero = new Pasajero();
+
 
   pasajerosExistentes: Pasajero[];
   aeronavesDisponibles: Aeronave[];

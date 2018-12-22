@@ -45,13 +45,12 @@
             <tbody>
               <tr *ngFor="let nodriza of nodrizas;let indice = index" >
                 <td >{{ indice+1 }}</td>
-                <td><input formControlName="nombre1" id="nombreact" type="text" class="" name="nombre1" required
-                  value="{{nodriza.nombre}}" />  </td>
+                <td>{{nodriza.nombre}}  </td>
                 <td >
-                  <button class="btn btn-primary" (click)="actualizarnavesnodrizas(nodriza)" data-toggle="tooltip" data-placement="top" title="Modificar">
+                  <!-- <button class="btn btn-primary" (click)="actualizarnavesnodrizas(nodriza)" data-toggle="tooltip" data-placement="top" title="Modificar">
                     <i class="fas fa-edit"></i>
                   </button> 
-                  &nbsp;
+                  &nbsp; -->
                   <button (click)="borrarNodriza(nodriza)" class="btn btn-danger " data-toggle="tooltip" data-placement="top" title="Borrar">
                     <i class="fas fa-trash"></i>
                   </button>

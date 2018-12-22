@@ -13,7 +13,7 @@ import { Aeronave } from '../Classes/Aeronave';
 
 export class RevisionComponent {
 
-  model: Revision = new Revision();
+
   aeronaves: Aeronave[];
 
   constructor(private dataService: DataService) {

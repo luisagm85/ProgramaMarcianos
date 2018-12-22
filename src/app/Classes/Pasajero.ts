@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Aeronave } from './Aeronave';
 
 export class Pasajero {
 
-    public nombre: string;
-    public _id: number;
 
-    constructor() {}
+
+    constructor(public nombre: string, public aeronave?: Aeronave,
+      public _id?: string) {}
 
   }
